@@ -1,0 +1,590 @@
+# LOGS =====================================
+
+ankit Demos % mkdir GitDemo
+ankit Demos % cd GitDemo 
+ankit GitDemo % git init       
+Initialized empty Git repository in /Users/ankit/Documents/SimformProjects/Demos/GitDemo/.git/
+ankit GitDemo % code .
+zsh: command not found: code
+ankit GitDemo % vscode .
+zsh: command not found: vscode
+ankit GitDemo % git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+ankit GitDemo % touch m1.txt  
+ankit GitDemo % git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	m1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add .
+ankit GitDemo % git commit 
+[main (root-commit) 768d9eb] initial commit : main
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m1.txt
+ankit GitDemo % git status
+On branch main
+nothing to commit, working tree clean
+ankit GitDemo % git log
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575 (HEAD -> main)
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % touch m2.txt
+ankit GitDemo % git status -s
+?? m2.txt
+ankit GitDemo % git commit -m "m2 file added"
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	m2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add m2.txt 
+ankit GitDemo % git commit -m "m2 file added"
+[main df95216] m2 file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m2.txt
+ankit GitDemo % git log 
+commit df95216d93f50897a8d6aaa43a4383c67f613707 (HEAD -> main)
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git config --global user.email ankit.verma@simformsolutions.com
+ankit GitDemo % git log
+commit df95216d93f50897a8d6aaa43a4383c67f613707 (HEAD -> main)
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % ls         
+m1.txt	m2.txt
+ankit GitDemo % git checkout -b feature
+Switched to a new branch 'feature'
+ankit GitDemo % git status
+On branch feature
+nothing to commit, working tree clean
+ankit GitDemo % ls
+m1.txt	m2.txt
+ankit GitDemo % touch f1.txt    
+ankit GitDemo % git status
+On branch feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	f1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % ls
+f1.txt	m1.txt	m2.txt
+ankit GitDemo % git add .
+ankit GitDemo % git commit -m "f1 added"
+[feature 7b4dc38] f1 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1.txt
+ankit GitDemo % git status
+On branch feature
+nothing to commit, working tree clean
+ankit GitDemo % git checkout main
+Switched to branch 'main'
+ankit GitDemo % ls 
+m1.txt	m2.txt
+ankit GitDemo % touch m3.txt
+ankit GitDemo % ls
+m1.txt	m2.txt	m3.txt
+ankit GitDemo % git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	m3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add .
+ankit GitDemo % git commit -m "m3 file added"
+[main 2c3f5d6] m3 file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m3.txt
+ankit GitDemo % git status
+On branch main
+nothing to commit, working tree clean
+ankit GitDemo % ls  
+m1.txt	m2.txt	m3.txt
+ankit GitDemo % git branch      
+  feature
+* main
+ankit GitDemo % git checkout feature
+Switched to branch 'feature'
+ankit GitDemo % git log
+commit 7b4dc381da183ecad3704843ee41654ca90a51fe (HEAD -> feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:08:27 2023 +0530
+
+    f1 added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % touch f2.txt
+ankit GitDemo % ls
+f1.txt	f2.txt	m1.txt	m2.txt
+ankit GitDemo % git status
+On branch feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	f2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add .
+ankit GitDemo % git status
+On branch feature
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   f2.txt
+
+ankit GitDemo % git rm f2.txt 
+error: the following file has changes staged in the index:
+    f2.txt
+(use --cached to keep the file, or -f to force removal)
+ankit GitDemo % git status
+On branch feature
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   f2.txt
+
+ankit GitDemo % git restore --staged f2.txt 
+ankit GitDemo % git status
+On branch feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	f2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add f2.txt 
+ankit GitDemo % git commit -m "f2 file added"
+[feature 12cc35c] f2 file added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f2.txt
+ankit GitDemo % git status
+On branch feature
+nothing to commit, working tree clean
+ankit GitDemo % git log
+commit 12cc35c403e1762bea210136c9e1d6bd3db50327 (HEAD -> feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:15:51 2023 +0530
+
+    f2 file added
+
+commit 7b4dc381da183ecad3704843ee41654ca90a51fe
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:08:27 2023 +0530
+
+    f1 added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git checkout main
+Switched to branch 'main'
+ankit GitDemo % git log
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447 (HEAD -> main)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git checkout feature
+Switched to branch 'feature'
+ankit GitDemo % git checkout -b modified-feature
+Switched to a new branch 'modified-feature'
+ankit GitDemo % git log
+commit 12cc35c403e1762bea210136c9e1d6bd3db50327 (HEAD -> modified-feature, feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:15:51 2023 +0530
+
+    f2 file added
+
+commit 7b4dc381da183ecad3704843ee41654ca90a51fe
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:08:27 2023 +0530
+
+    f1 added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git rebase main
+Successfully rebased and updated refs/heads/modified-feature.
+ankit GitDemo % git log
+commit 878863f7fde3c23f334fa41c53a0f297e60ef0f5 (HEAD -> modified-feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:15:51 2023 +0530
+
+    f2 file added
+
+commit 9a93bbb280df7761439a55b0ba4f435dcc57d831
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:08:27 2023 +0530
+
+    f1 added
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447 (main)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % 
+ankit GitDemo % git status
+On branch modified-feature
+nothing to commit, working tree clean
+ankit GitDemo % git log
+commit 878863f7fde3c23f334fa41c53a0f297e60ef0f5 (HEAD -> modified-feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:15:51 2023 +0530
+
+    f2 file added
+
+commit 9a93bbb280df7761439a55b0ba4f435dcc57d831
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:08:27 2023 +0530
+
+    f1 added
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447 (main)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git branch
+  feature
+  main
+* modified-feature
+ankit GitDemo % l        
+zsh: command not found: l
+ankit GitDemo % ls
+f1.txt	f2.txt	m1.txt	m2.txt	m3.txt
+ankit GitDemo % git reset --soft HEAD~2
+ankit GitDemo % git status
+On branch modified-feature
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   f1.txt
+	new file:   f2.txt
+
+ankit GitDemo % git commit -m "added f1 & f2"
+[modified-feature 87ce8df] added f1 & f2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1.txt
+ create mode 100644 f2.txt
+ankit GitDemo % git status
+On branch modified-feature
+nothing to commit, working tree clean
+ankit GitDemo % git log
+commit 87ce8dfa94a6885026e61d40990057beef13c8a6 (HEAD -> modified-feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:25:04 2023 +0530
+
+    added f1 & f2
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447 (main)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % 
+ankit GitDemo % 
+ankit GitDemo % 
+ankit GitDemo % 
+ankit GitDemo % git commit --amend
+[modified-feature 0993618] added f1 & f2 after squahing f1, f2 commit
+ Date: Fri Feb 17 13:25:04 2023 +0530
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1.txt
+ create mode 100644 f2.txt
+ankit GitDemo % git checkout main
+Switched to branch 'main'
+ankit GitDemo % git status
+On branch main
+nothing to commit, working tree clean
+ankit GitDemo % touch m4
+ankit GitDemo % rm m4
+ankit GitDemo % touch m4.txt
+ankit GitDemo % touch m5.txt
+ankit GitDemo % 
+ankit GitDemo % git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	m4.txt
+	m5.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % ls
+m1.txt	m2.txt	m3.txt	m4.txt	m5.txt
+ankit GitDemo % git add m4.txt 
+ankit GitDemo % git commit -m "added m4"
+[main e94e676] added m4
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m4.txt
+ankit GitDemo % git add m5.txt          
+ankit GitDemo % git commit -m "added m5" 
+[main 95b9fe6] added m5
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m5.txt
+ankit GitDemo % git log
+commit 95b9fe6a900f177dd8c0cedeed22ecdc9b5e038a (HEAD -> main)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:33:37 2023 +0530
+
+    added m5
+
+commit e94e6763d261db832b70ff45f384863157f3bb82
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:33:22 2023 +0530
+
+    added m4
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+ankit GitDemo % git checkout modified-feature
+Switched to branch 'modified-feature'
+ankit GitDemo % git branch
+  feature
+  main
+* modified-feature
+ankit GitDemo % git log
+commit 09936184be8cccebc31353a4bda58cb452be2282 (HEAD -> modified-feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:25:04 2023 +0530
+
+    added f1 & f2 after squahing f1, f2 commit
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+
+commit 768d9eb001c2d27ed72cf4af26287f3e250ae575
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:02:21 2023 +0530
+
+    initial commit : main
+ankit GitDemo % git      
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+ankit GitDemo % git --version
+git version 2.37.1 (Apple Git-137.1)
+ankit GitDemo % git cherry-pick 95b9fe6a900f177dd8c0cedeed22ecdc9b5e038a
+[modified-feature 191d94a] added m5
+ Date: Fri Feb 17 13:33:37 2023 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 m5.txt
+ankit GitDemo % git log
+commit 191d94abbe47093ccddc4c96425a99d939cbd915 (HEAD -> modified-feature)
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:33:37 2023 +0530
+
+    added m5
+
+commit 09936184be8cccebc31353a4bda58cb452be2282
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:25:04 2023 +0530
+
+    added f1 & f2 after squahing f1, f2 commit
+
+commit 2c3f5d692a873073e1239bf938cc7a0c08089447
+Author: ankit-verma-simform <ankit.verma@simformsolutions.com>
+Date:   Fri Feb 17 13:09:16 2023 +0530
+
+    m3 file added
+
+commit df95216d93f50897a8d6aaa43a4383c67f613707
+Author: ankit-verma-simform <ankit.verma@simform.com>
+Date:   Fri Feb 17 13:05:14 2023 +0530
+
+    m2 file added
+ankit GitDemo % ls
+f1.txt	f2.txt	m1.txt	m2.txt	m3.txt	m5.txt
+ankit GitDemo % 
+ankit GitDemo % git checkout main
+Switched to branch 'main'
+ankit GitDemo % git status
+On branch main
+nothing to commit, working tree clean
+ankit GitDemo % touch README.md
+ankit GitDemo % nano README.md 
+ankit GitDemo % git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+ankit GitDemo % git add README.md 
+ankit GitDemo % git commit -m "added README"
+[main e9b23d5] added README
+ 1 file changed, 5 insertions(+)
+ create mode 100644 README.md
+ankit GitDemo % git remote add origin https://github.com/ankit-verma-simform/GitDemo.git
+ankit GitDemo % git push -u origin main
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 1.25 KiB | 1.25 MiB/s, done.
+Total 14 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/ankit-verma-simform/GitDemo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+ankit GitDemo % 
